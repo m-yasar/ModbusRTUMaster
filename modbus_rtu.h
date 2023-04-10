@@ -8,34 +8,17 @@
 #define FC16ReqPackageSIZE                  (1+1+2+2+1+ModbusRTU_SendPackage_ByteSIZE+2)
 //Slave Address+ Function Code + Response Byte Quantity + Data + CRC
 #define FC3ResponsePackageSIZE              (1+1+2+ModbusRTU_ReceivePackage_ByteSIZE+2)
-#define TransmitRegister                    U1TXREG              
+#define TransmitRegister                    TX REG
 
 
 /*
- * Kullaniciya ait arayüz, burada gonderilmek istenilen verilerin bit, byte, word olarak tan?mlar? yap?lmal?d?r
+ * Kullaniciya ait arayÃ¼z, burada gonderilmek istenilen verilerin bit, byte, word olarak tan?mlar? yap?lmal?d?r
  * Diger c dosyalarinda "extern sendData sendDataPackage;" declaration kullanilarak farkli yerlerde de parametreleri cagirilabilir.
  */
 typedef union{
     uint8_t FC16DataArray[ModbusRTU_SendPackage_ByteSIZE];   /*Byte boyutuna gore asagidaki veriler kullanilabilir.*/
     struct{
     uint16_t firstvariable:16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
     unsigned :16;
     };
 }FC16DataPackage;
@@ -45,23 +28,6 @@ typedef union{
     struct{
     uint8_t firstvariable:8;
     unsigned :8;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
-    unsigned :16;
     unsigned :16;
     };
 }FC3DataPackage;
