@@ -5,13 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 
- 
- 
-/*Bu aralik silinmeli */
-#define out1 _LATE6
-#define out2 _LATE5
-/*Bu aralik silinmeli*/
-
 FC16DataPackage FC16SendDataPackage;
 extern FC16DataPackage FC16SendDataPackage;
 FC3DataPackage FC3RespData;
@@ -147,8 +140,8 @@ void response_RTU(uint8_t receiverRegister){
         responseCounter=0;
         FC3ResponseMoment=false; 
         memcpy(FC3RespData.FC3DataArray,FC3Response.Data,ModbusRTU_ReceivePackage_ByteSIZE);
-//        if(checkFC16response()) {sendFC3request(); _LATE4 = 1; _LATE5 = 0;}
-//        else{_LATE4 = 0; _LATE5 = 1;}
+        if(checkFC16response()) {sendFC3request();}
+        else{}
     } 
     }
 
